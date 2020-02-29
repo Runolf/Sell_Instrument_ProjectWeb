@@ -1,3 +1,6 @@
+CREATE DATABASE instrumagasin;
+USE instrumagasin;
+
 CREATE TABLE Roles(
 	roleId INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
 	`name` VARCHAR(50) 
