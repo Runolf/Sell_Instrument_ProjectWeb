@@ -1,5 +1,6 @@
 <?php
-class Articles{
+
+//class Articles{
   // La variable data est une liste contenant l'ensemble des données. 1 élément = 1 donnée.
   // A terme, les données seront récupérées depuis une db et injectées dans des objets php
   // $data = [
@@ -30,18 +31,26 @@ class Articles{
 // $brand;
 // $picture;
 // $price;
+try {
+   global $bdd = new PDO('mysql:host=localhost;dbname=instrumagasin;charset=utf8', 'root', ''        , array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      //  $bdd = new PDO('mysql:host=localhost;dbname=cours        ;charset=utf8', 'root', 'password', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e) {
+  die('Erreur : ' . $e->getMessage());
+}
 
-public function getAll(){
-      $sql = `SELECT * FROM articles`;
-      foreach ($sql as $cat) {
-        return $cat;
+function getAll(){
+      $response = $bdd->query('SELECT * FROM articles');
+
+      while($data = $response->fetch()){
+          echo "name: ".$date['name'];
       }
   }
 
-public function getById($id){
+ function getById($id){
       $sql = `SELECT * FROM articles WHERE articleId = `. $id;
   }
 
 
-}
+//}
 ?>
