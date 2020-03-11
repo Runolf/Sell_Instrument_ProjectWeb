@@ -12,7 +12,7 @@
           <div class="card-body">
               <h5 class="card-title"><?=$article->price?></h5>
               <p class="card-text"><?=$article->comment?></p>
-              <a href="<?=ROOT_PATH.'article/'.$article->name?>" class="btn btn-primary">Voir le détail</a>
+              <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn btn-primary">Voir le détail</a>
           </div>
         </div>
 

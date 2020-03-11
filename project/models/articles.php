@@ -31,14 +31,16 @@ require 'connectionDB.php';
  public $brand;
  public $picture;
  public $price;
+ public $comment;
 
  public function __construct($data=null){
    if (is_array($data)) {
      $this->$articleId = $data["articleId"];
-     $this->name = $data["name"];
+     $this->name = str_replace($data["name"], " ","_");
      $this->brand = $data["brand"];
      $this->$picture = $data["picture"];
      $this->$price = $data["price"];
+     $this->$comment = $data["comment"];
    }
 }
 
