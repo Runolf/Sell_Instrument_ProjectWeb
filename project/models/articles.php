@@ -1,6 +1,6 @@
 <?php
 require 'connectionDB.php';
- class Articles{
+ class Article{
   // La variable data est une liste contenant l'ensemble des données. 1 élément = 1 donnée.
   // A terme, les données seront récupérées depuis une db et injectées dans des objets php
   // $data = [
@@ -32,17 +32,32 @@ require 'connectionDB.php';
  public $picture;
  public $price;
 
+ public function __construct($data=null){
+   if (is_array($data)) {
+     $this->$articleId = $data["articleId"];
+     $this->name = $data["name"];
+     $this->brand = $data["brand"];
+     $this->$picture = $data["picture"];
+     $this->$price = $data["price"];
+   }
+}
 
 public static function getAll(){
 
     $response = getDB()->query('SELECT * FROM articles');
-    // setFetchMode
-    return $response->fetchAll();
+    $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+    $datas = $response->fetchAll();
+    $response->closeCursor();
+    return $datas;
 
   }
 
  public static function getById($id){
-      $sql = `SELECT * FROM articles WHERE articleId = `. $id;
+      $response = getDB()->query('SELECT * FROM articles WHERE articleId = '. $id);
+      $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+      $data = $response->fetch();
+      $response->closeCursor();
+      return $data;
   }
 
 
