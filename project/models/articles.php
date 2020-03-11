@@ -1,6 +1,6 @@
 <?php
-
-//class Articles{
+require 'connectionDB.php';
+ class Articles{
   // La variable data est une liste contenant l'ensemble des données. 1 élément = 1 donnée.
   // A terme, les données seront récupérées depuis une db et injectées dans des objets php
   // $data = [
@@ -26,31 +26,25 @@
   //       global $data; // portée globale afin de disposer de la liste. Sans le mot clé global, la variable data sera locale et donc null
   //       return $data;
   //   }
-// $articleId;
-// $name;
-// $brand;
-// $picture;
-// $price;
-try {
-   global $bdd = new PDO('mysql:host=localhost;dbname=instrumagasin;charset=utf8', 'root', ''        , array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      //  $bdd = new PDO('mysql:host=localhost;dbname=cours        ;charset=utf8', 'root', 'password', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e) {
-  die('Erreur : ' . $e->getMessage());
-}
+ public $articleId;
+ public $name;
+ public $brand;
+ public $picture;
+ public $price;
 
-function getAll(){
-      $response = $bdd->query('SELECT * FROM articles');
 
-      while($data = $response->fetch()){
-          echo "name: ".$date['name'];
-      }
+public static function getAll(){
+
+    $response = getDB()->query('SELECT * FROM articles');
+    // setFetchMode
+    return $response->fetchAll();
+
   }
 
- function getById($id){
+ public static function getById($id){
       $sql = `SELECT * FROM articles WHERE articleId = `. $id;
   }
 
 
-//}
+}
 ?>

@@ -3,12 +3,12 @@
     <?php foreach($articles as $article):?>
         <div class="card text-center">
           <div class="card-header">
-              <?=$article['nom']?>
+              <?=$article['name']?>
           </div>
           <div class="card-body">
-              <h5 class="card-title"><?=$article['prix']?></h5>
-              <p class="card-text"><?=$article['description']?></p>
-              <a href="<?=ROOT_PATH.'article/'.$article['nom']?>" class="btn btn-primary">Voir le détail</a>
+              <h5 class="card-title"><?=$article['price']?></h5>
+              <p class="card-text"><?=$article['comment']?></p>
+              <a href="<?=ROOT_PATH.'article/'.$article['name']?>" class="btn btn-primary">Voir le détail</a>
           </div>
         </div>
       <?php endforeach?>
