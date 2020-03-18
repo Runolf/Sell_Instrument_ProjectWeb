@@ -1,6 +1,5 @@
 <?php
 ob_start();
-session_start();
 if(!empty($_SESSION['mail'])){
     header("Location: index.php");
     exit();
@@ -14,7 +13,7 @@ if(!empty($_POST)){
 }
 ?>
 
-<form class="form-group" action="<?=ROOT_PATH?>" method="post">
+<form class="form-group" method="post">
   <input type="email" class="form-control" id="mail" name="mail" placeholder="enter your mail"> <br/><br/>
   <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/><br/>
 

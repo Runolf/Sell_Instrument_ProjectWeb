@@ -22,10 +22,9 @@ CREATE TABLE Users(
 	FOREIGN KEY (RoleId) REFERENCES Roles(RoleId)
 )ENGINE=INNODB;
 
-INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId)
-	   VALUES("alexandreliskiewicz@hotmail.com", "Runolf", "Test1234","Le Roeulx", "Chaussée de Soignies", "54", 100, 1), 
-	   VALUES("jeffbezos@hotmail.com", "Jeffounet", "Amazon1234", "Somewhere", "Street Something", "666", 100, 2),
-	   VALUES("elonmusk@gmail.com", "HeyLone", "SpaceCake666", "Somewhere", "Street Something", "777", 100, 2);
+INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("alexandreliskiewicz@hotmail.com", "Runolf", "Test1234","Le Roeulx", "Chaussée de Soignies", "54", 100, 1);
+INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("jeffbezos@hotmail.com", "Jeffounet", "Amazon1234", "Somewhere", "Street Something", "666", 100, 2);
+INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("elonmusk@gmail.com", "HeyLone", "SpaceCake666", "Somewhere", "Street Something", "777", 100, 2);
 	  
 -- select u.pseudo, r.name as 'role'
 -- from Users as u
@@ -45,6 +44,9 @@ CREATE TABLE Articles(
 
 INSERT INTO Articles(`name`, brand, picture, price, `comment`)
 		VALUES("cort zenox", "cort", "C:\Users\alexa\Documents\projetdev\Sell_Instrument_ProjectWeb\project\img\cort_zenox.jpg", 300.99, "amazing guitar");
+		
+INSERT INTO Articles(`name`, brand, picture, price, `comment`)
+		VALUES("Bodhran", "Gaia", "*", 50.99, "Beautiful bodhran from Ireland");
 		
 
 CREATE TABLE sellArticles(
