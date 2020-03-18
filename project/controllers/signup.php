@@ -1,1 +1,7 @@
-<?php include 'views/signup.php'; ?>
+<?php
+  require 'models/users.php';
+  
+  $users = User::getAll();
+
+  include 'views/signup.php';
+?>
