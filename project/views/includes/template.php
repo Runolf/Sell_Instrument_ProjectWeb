@@ -18,7 +18,7 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>articles">Les articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>article">Les articles</a></li>
                     <?php
                       if(empty($_SESSION['mail']) && empty($_SESSION['pswd'])) {
                         echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'login>Login</a></li>';

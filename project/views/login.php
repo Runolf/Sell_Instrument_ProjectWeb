@@ -7,7 +7,6 @@ ob_start();
   <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/><br/>
 
   <button type="submit" class="btn btn-primary btn-lg" id="button" name="button">login</button>
-
 </form>
 
 <?php
