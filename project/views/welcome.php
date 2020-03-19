@@ -1,8 +1,8 @@
 <?php
 if(empty($_SESSION['mail'])){
-    $title="Pas session";
+    $title="Welcome";
 }else{
-    $title="Bienvenue " . $_SESSION['mail'] . " " . $_SESSION['pswd'];
+    $title="Welcome " . $_SESSION['mail'] . " " . $_SESSION['pswd'];
 }
 $content="Welcome";
 include 'includes/template.php';

@@ -1,7 +1,7 @@
 <?php
 ob_start();
 if(!empty($_SESSION['mail'])){
-    header("Location: index.php");
+    header("Location: welcome");
     exit();
 }
 
@@ -9,6 +9,7 @@ if(!empty($_POST)){
   if(!empty($_POST['mail']) && !empty($_POST['pswd'])){
     $_SESSION['mail'] = $_POST['mail'];
     $_SESSION['pswd'] = $_POST['pswd'];
+    header("Location: welcome");
   }
 }
 ?>
