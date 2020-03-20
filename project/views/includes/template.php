@@ -21,6 +21,7 @@
                     <li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>article">Les articles</a></li>
                     <?php
                       if(empty($_SESSION['mail']) && empty($_SESSION['pswd'])) {
+                        echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'signup>Signup</a></li>';
                         echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'login>Login</a></li>';
                       }else{
                         echo '<a class="logout btn btn-outline-success my-2 my-sm-0" href="logout.php">logout</a>';
