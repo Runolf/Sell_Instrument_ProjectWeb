@@ -7,5 +7,4 @@
       $article = Article::getById(REQ_TYPE_ID);
       include 'views/article.php';
     }
-
  ?>

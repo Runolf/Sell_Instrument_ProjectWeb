@@ -1,6 +1,5 @@
 <?php
   require 'models/users.php';
-
   $users = User::getAll();
 
   if(!empty($_SESSION['mail'])){
@@ -15,6 +14,6 @@
       header("Location: welcome");
     }
   }
-  
+
   include 'views/login.php';
 ?>
