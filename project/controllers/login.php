@@ -11,7 +11,7 @@
     if(!empty($_POST['mail']) && !empty($_POST['pswd'])){
       $_SESSION['mail'] = $_POST['mail'];
       $_SESSION['pswd'] = $_POST['pswd'];
-      header("Location: welcome");
+      header("Location: article");
     }
   }
 

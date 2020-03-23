@@ -1,7 +1,24 @@
-.logout{
-
+body {
+  background-color: rgb(159, 159, 159);
 }
 
-html{
-  color: red;
+main{
+  width: 50%;
+  margin-top: 5%;
+}
+
+.formlogin{
+  margin-top: 100px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.card{
+  width: 200px;
 }

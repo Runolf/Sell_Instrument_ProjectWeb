@@ -1,4 +1,13 @@
-<?php ob_start() ?>
+<?php
+ob_start();
+if(empty($_SESSION['mail'])){
+  $welcome="Welcome";
+}else{
+  $welcome="Welcome " . $_SESSION['mail'] . " " . $_SESSION['pswd'];
+}
+?>
+
+  <h2 class="text-white"><?=$welcome ?></h2>
 
     <div class="card-deck">
 

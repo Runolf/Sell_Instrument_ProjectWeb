@@ -42,10 +42,17 @@ class User{
        return $data;
    }
 
-  public static function post(){
-    $response = getDB()->prepare('INSERT INTO `users` SET email = :email, pseudo = :pseudo, pswd = :pswd,  city = :city, street = :street,  number = :number');
-     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
-    $response->execute([':email' => $_POST['email'], ':pseudo' => $_POST['pseudo'], ':pswd' => password_hash($_POST['pswd'], PASSWORD_DEFAULT), ':city' => $_POST['city'], ':street' => $_POST['street'], ':number' => $_POST['number'] ]);
+  public static function post(){ //mail, pseudo, city , street, nbr, pswd, confirm_password
+    $response = getDB()->prepare('INSERT INTO `users` SET email = :email, pseudo = :pseudo,
+      pswd = :pswd,  city = :city, street = :street,  nbr = :nbr');
+
+    $response->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+    // password_hash($_POST['pswd'], PASSWORD_DEFAULT)
+    $response->execute([':email' => $_POST['mail'], ':pseudo' => $_POST['pseudo'],
+    ':pswd' => $_POST['pswd'], ':city' => $_POST['city'],
+    ':street' => $_POST['street'], ':nbr' => $_POST['nbr'] ]);
+
     $response->closeCursor();
   }
 

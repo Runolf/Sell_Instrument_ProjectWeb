@@ -8,10 +8,10 @@ ob_start();
 
   <input type="text" class="form-control" id="city" name="city" placeholder="enter your city"> <br/><br/>
   <input type="text" class="form-control" id="street" name="street" placeholder="enter your street"> <br/><br/>
-  <input type="text" class="form-control" id="number" name="number" placeholder="enter your number"> <br/><br/>
+  <input type="text" class="form-control" id="nbr" name="nbr" placeholder="enter your number"> <br/><br/>
 
   <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/>
-  <input type="password" class="form-control" id="idconfirmpassword" name="confirm_password" placeholder="repeat your password"><br>
+  
 
   <button type="submit" class="btn btn-primary btn-lg" id="button" name="button">sign up</button>
 </form>
