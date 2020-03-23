@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <br/>
-<form class="form-group" method="post">
+<form class="form-group" method="post" action="<?=ROOT_PATH.'signup'?>">
   <input type="email" class="form-control" id="mail" name="mail" placeholder="enter your mail"> <br/><br/>
   <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="enter your pseudo"> <br/><br/>
 
@@ -11,7 +11,7 @@ ob_start();
   <input type="text" class="form-control" id="nbr" name="nbr" placeholder="enter your number"> <br/><br/>
 
   <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/>
-  
+  <input type="password" class="form-control" id="pswd" name="verify_pswd" placeholder="retype your password"> <br/>
 
   <button type="submit" class="btn btn-primary btn-lg" id="button" name="button">sign up</button>
 </form>
