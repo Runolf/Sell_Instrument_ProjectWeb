@@ -1,24 +1,72 @@
 body {
-  background-color: rgb(159, 159, 159);
+  background-color: rgb(66, 66, 66);
+}
+
+.container{
+  width: 100%;
+  padding:0% 4% 0%;
 }
 
 main{
-  width: 50%;
-  margin-top: 5%;
+  background-color: rgb(150, 150, 150);
+  height: 100%;
+  margin: 5% 15% 5%;
 }
 
 .formlogin{
   margin-top: 100px;
 }
 
+
+/*     ARTICLES       */
+.container_art{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-top: 5%;
+}
+
+.card_title{
+color: rgb(219, 219, 219);
+font-weight: bolder;
+background-color: grey;
+padding: 5% 0% 5% 0%;
+}
+
+.card{
+  margin:0% 5% 5% 0%;
+  width: 200px;
+  height: 250px;
+  box-shadow: 0px 0px 15px rgba(87, 87, 87, 0.75);
+}
+
+.card:hover{
+  margin:0% 5% 5% 0%;
+  width: 200px;
+  height: 250px;
+  box-shadow: 0px 0px 10px grey;
+}
+
+.card_body{
+  padding: 10%;
+}
+
+.btn_detail{
+  position: absolute;
+  top: 180px;
+  left: 45px;
+}
+
+
+/*     FOOTER       */
 .footer {
-  position: fixed;
+  /*position: fixed;*/
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-}
-
-.card{
-  width: 200px;
+  padding-bottom: 2%;
 }

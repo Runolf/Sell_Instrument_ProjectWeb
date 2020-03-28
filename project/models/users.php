@@ -44,7 +44,7 @@ class User{
 
   public static function post($_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){ //mail, pseudo, city , street, nbr, pswd, confirm_password
     $response = getDB()->prepare('INSERT INTO `users` SET email = :email, pseudo = :pseudo,
-      pswd = :pswd,  city = :city, street = :street,  number = :nbr');
+      pswd = :pswd,  city = :city, street = :street,  number = :nbr, RoleId = 2');
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
 
@@ -61,12 +61,13 @@ class User{
 
   }
 
+  public static function isUserExists($email){
+    // verifie si l'user existe et renvoie l'user
+    $response = getDB()->prepare('SELECT * FROM `users` WHERE email = :email');
 
-  public static function isUserExists($login){
-    // verifie si l'user existe
-    $response = getDB()->query('SELECT * FROM users WHERE email = :login');
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
-    $response->execute([':login' => $login]);
+
+    $response->execute([':email' => $email]);
     $data = $response->fetch();
     $response->closeCursor();
     return $data;

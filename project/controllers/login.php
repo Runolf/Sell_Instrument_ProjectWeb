@@ -3,15 +3,22 @@
   $users = User::getAll();
 
   if(!empty($_SESSION['mail'])){
-      header("Location: welcome");
+      header("Location: article");
       exit();
   }
 
   if(!empty($_POST)){
     if(!empty($_POST['mail']) && !empty($_POST['pswd'])){
-      $_SESSION['mail'] = $_POST['mail'];
-      $_SESSION['pswd'] = $_POST['pswd'];
-      header("Location: article");
+
+      $user = User::isUserExists($_POST['mail']);
+
+      if(!empty($user)){
+        $_SESSION['mail'] = $user->$email;
+        $_SESSION['pswd'] = $user->$pswd;
+        header("Location: article");
+      }else{
+        $errorMessage = "ce mail/login n existe pas";
+      }
     }
   }
 

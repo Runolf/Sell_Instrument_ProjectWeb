@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <br/>
-<form class="form-group" method="post" action="<?=ROOT_PATH.'signup'?>">
+<form class="form-group jumbotron" method="post" action="<?=ROOT_PATH.'signup'?>">
   <input type="email" class="form-control" id="mail" name="mail" placeholder="enter your mail"> <br/><br/>
   <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="enter your pseudo"> <br/><br/>
 

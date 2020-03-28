@@ -23,8 +23,6 @@ CREATE TABLE Users(
 )ENGINE=INNODB;
 
 INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("alexandreliskiewicz@hotmail.com", "Runolf", "Test1234","Le Roeulx", "Chaussée de Soignies", "54", 100, 1);
-INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("jeffbezos@hotmail.com", "Jeffounet", "Amazon1234", "Somewhere", "Street Something", "666", 100, 2);
-INSERT INTO Users(email, pseudo, pswd, city, street, number, rating, RoleId) VALUES("elonmusk@gmail.com", "HeyLone", "SpaceCake666", "Somewhere", "Street Something", "777", 100, 2);
 	  
 -- select u.pseudo, r.name as 'role'
 -- from Users as u

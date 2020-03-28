@@ -1,27 +1,26 @@
 <?php
-ob_start();
 if(empty($_SESSION['mail'])){
   $welcome="Welcome";
 }else{
   $welcome="Welcome " . $_SESSION['mail'] . " " . $_SESSION['pswd'];
 }
+ob_start();
 ?>
 
   <h2 class="text-white"><?=$welcome ?></h2>
 
-    <div class="card-deck">
+    <div class="container_art">
 
     <?php foreach($articles as $article):?>
 
         <div class="card text-center">
-          <div class="card-header">
+          <div class="card_title">
               <?=$article->name?>
           </div>
 
-          <div class="card-body">
-              <h5 class="card-title"><?=$article->price?></h5>
-              <p class="card-text"><?=$article->comment?></p>
-              <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn btn-primary">Voir le détail</a>
+          <div class="card_body">
+              <h5 class=""><?=$article->price?></h5>
+              <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn_detail btn btn-primary">Voir le détail</a>
           </div>
         </div>
 

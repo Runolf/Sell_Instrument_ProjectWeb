@@ -28,6 +28,7 @@
                         echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'signup>Signup</a></li>';
                         echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'login>Login</a></li>';
                       }else{
+                        echo '<li class="nav-item"><a class="nav-link" href='.ROOT_PATH.'account>Account</a></li>';
                         echo '<a class="logout btn btn-outline-success my-2 my-sm-0" href="logout.php">logout</a>';
                       }
                      ?>
@@ -35,6 +36,11 @@
             </div>
         </nav>
         <main role="main" class="container">
+          <?php
+          if(!empty($errorMessage)){
+              include('error.php');
+          }
+          ?>
             <h1 class="text-white"><?php echo $title; ?></h1>
             <?php echo $content; ?>
         </main>

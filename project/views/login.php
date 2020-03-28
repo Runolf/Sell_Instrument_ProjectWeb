@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<div class="formlogin jumbotron">
+<div class="formlogin">
     <form class="form-group" method="post">
       <input type="email" class="form-control" id="mail" name="mail" placeholder="enter your mail"> <br/><br/>
       <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/><br/>
