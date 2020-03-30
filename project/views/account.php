@@ -1,8 +1,14 @@
 <?php
 ob_start();
 ?>
-<h3>Your rating: <?= $_SESSION['rating'] ?></h3>
-<form class="form-group" method="post">
+
+<h1>id:          <?= $_SESSION['userId']; ?></h1> <!-- ne s'affiche pas -->
+<h3>Your rating: <?= $_SESSION['rating']; ?></h3>
+<h2> roleId :    <?= $_SESSION['RoleId'];  ?></h2> <!-- S'affiche -->
+
+
+
+<form class="form-group" method="post" action="<?=ROOT_PATH.'account'?>">
 
   <div class="form-group">
       <label for="mail">Email/login</label>
@@ -19,6 +25,7 @@ ob_start();
       <input type="text" class="form-control form_address" id="address" name="number" value="<?=$_SESSION['number']?>">
       <input type="text" class="form-control form_address" id="address" name="city" value="<?=$_SESSION['city']?>">
   </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <br/>

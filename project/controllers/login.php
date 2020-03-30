@@ -13,7 +13,9 @@
       $user = User::isUserExists($_POST['mail']);
 
       if(!empty($user)){
-        $_SESSION['userId'] = $user->useId;
+        $_SESSION['userId'] = $user->userId;
+        $_SESSION['pswd']   = $user->pswd;
+        
         $_SESSION['mail']   = $user->email;
         $_SESSION['pseudo'] = $user->pseudo;
         $_SESSION['city']   = $user->city;
