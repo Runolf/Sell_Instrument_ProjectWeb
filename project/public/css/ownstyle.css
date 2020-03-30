@@ -70,3 +70,8 @@ padding: 5% 0% 5% 0%;
   text-align: center;
   padding-bottom: 2%;
 }
+
+.form_address{
+  width: auto;
+  display: inline-block;
+}

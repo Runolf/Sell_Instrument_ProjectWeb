@@ -58,14 +58,14 @@ class User{
 
 
   public static function modify($id){
-
+    $user = getById($id);
   }
 
   public static function isUserExists($email){
     // verifie si l'user existe et renvoie l'user
     $response = getDB()->prepare('SELECT * FROM `users` WHERE email = :email');
 
-    $response->setFetchMode(PDO::FETCH_CLASS, 'User');
+    $response->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
 
     $response->execute([':email' => $email]);
     $data = $response->fetch();

@@ -2,7 +2,7 @@
 if(empty($_SESSION['mail'])){
   $welcome="Welcome";
 }else{
-  $welcome="Welcome " . $_SESSION['mail'] . " " . $_SESSION['pswd'];
+  $welcome="Welcome " . $_SESSION['mail'] . " " . $_SESSION['pseudo'];
 }
 ob_start();
 ?>
