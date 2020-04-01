@@ -1,12 +1,7 @@
 <?php
 ob_start();
 ?>
-
-<h1>id:          <?= $_SESSION['userId']; ?></h1> <!-- ne s'affiche pas -->
 <h3>Your rating: <?= $_SESSION['rating']; ?></h3>
-<h2> roleId :    <?= $_SESSION['RoleId'];  ?></h2> <!-- S'affiche -->
-
-
 
 <form class="form-group" method="post" action="<?=ROOT_PATH.'account'?>">
 
@@ -24,6 +19,12 @@ ob_start();
       <input type="text" class="form-control form_address" id="address" name="street" value="<?=$_SESSION['street']?>">
       <input type="text" class="form-control form_address" id="address" name="number" value="<?=$_SESSION['number']?>">
       <input type="text" class="form-control form_address" id="address" name="city" value="<?=$_SESSION['city']?>">
+  </div>
+
+  <div class="form-group">
+      <label for="password">Password</label><br />
+      <input type="text" class="form-control form_address" id="password" name="password" value="<?=$_SESSION['pswd']?>">
+      <input type="text" class="form-control form_address" id="password" name="password_test">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

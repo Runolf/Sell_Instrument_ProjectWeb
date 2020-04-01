@@ -15,7 +15,18 @@
     $street = (empty($_POST['street']))?$_SESSION['street'] : $_POST['street'];
     $number = (empty($_POST['number']))?$_SESSION['number'] : $_POST['number'];
 
-    User::modify($_SESSION['UserId'] , $mail , $pseudo ,/*$_POST['pswd'],*/ $city, $street, $number);
+    if (empty($_POST['password'])) {
+      $pswd = "coucou";
+    }else{
+        if ($_POST['password'] == $_POST['password_test']) {
+            $pswd = $_POST['password'];
+        }else{
+          $errorMessage = "les passwords sont differents!";
+        }
+    }
+
+
+    User::modify($_SESSION['userId'] , $mail , $pseudo , $pswd ,$city, $street, $number);
     header('Location: article');
   }
   include 'views/account.php';

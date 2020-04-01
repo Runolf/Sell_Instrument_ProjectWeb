@@ -14,6 +14,7 @@ class User{
 
   public function __construct($data=null){
     if(is_array($data)){
+
        $this->$userId = $data["userId"];
        $this->$email = $data["email"];
        $this->$pseudo = $data["pseudo"];
@@ -57,16 +58,16 @@ class User{
   }
 
 
-  public static function modify($id , $_mail, $_pseudo,/* $_pswd,*/ $_city, $_street, $_nbr){
+  public static function modify($id , $_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){
                             // UPDATE `users` SET rating = 50, RoleId = 2 WHERE userId = 7;
     $response = getDB()->prepare('UPDATE `users` SET email = :email, pseudo = :pseudo,
-      /*pswd = :pswd,*/  city = :city, street = :street,  number = :nbr WHERE userId ='.$id);
+      pswd = :pswd,  city = :city, street = :street,  number = :nbr WHERE userId ='.$id);
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
 
     // password_hash($_POST['pswd'], PASSWORD_DEFAULT)
     $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
-    /*':pswd' => $_pswd,*/ ':city' => $_city,
+    ':pswd' => $_pswd, ':city' => $_city,
     ':street' => $_street, ':nbr' => $_nbr]);
 
     $response->closeCursor();
