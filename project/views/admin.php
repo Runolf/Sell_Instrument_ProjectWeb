@@ -3,7 +3,8 @@ ob_start();
 ?>
 
 <p>
-  administration
+  see all clients:
+  <a href="<?=ROOT_PATH?>allclient">HERE</a>
 </p>
 
 <?php
