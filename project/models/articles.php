@@ -1,7 +1,7 @@
 <?php
 require 'connectionDB.php';
- class Article{
 
+ class Article{
  public $articleId;
  public $name;
  public $brand;
@@ -26,8 +26,8 @@ public static function getAll(){
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $datas = $response->fetchAll();
     $response->closeCursor();
-    return $datas;
 
+    return $datas;
   }
 
  public static function getById($id){

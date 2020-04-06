@@ -2,18 +2,18 @@
 ob_start();
  ?>
 
-<table>
+<table border="1">
   <thead>
     <tr>
-      <th>test</th>
-      <th>test</th>
-      <th>test</th>
+      <th>pseudo</th>
+      <th>mail</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach ($users as $user): ?>
     <tr>
-      <th><?= $users->pseudo ?></th>
+      <th><?= $user->pseudo ?></th>
+      <th><?= $user->email ?></th>
     </tr>
   <?php endforeach; ?>
   </tbody>

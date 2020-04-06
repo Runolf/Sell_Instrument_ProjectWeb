@@ -28,10 +28,12 @@ class User{
   }
 
   public static function getAll(){
+
     $response = getDB()->query('SELECT * FROM users');
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
     $datas = $response->fetchAll();
     $response->closeCursor();
+
     return $datas;
   }
 
@@ -57,7 +59,6 @@ class User{
 
     $response->closeCursor();
   }
-
 
   public static function modify($id , $_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){
                             // UPDATE `users` SET rating = 50, RoleId = 2 WHERE userId = 7;
