@@ -14,6 +14,7 @@ ob_start();
     <tr>
       <th><?= $user->pseudo ?></th>
       <th><?= $user->email ?></th>
+      <th>delete</th>
     </tr>
   <?php endforeach; ?>
   </tbody>
