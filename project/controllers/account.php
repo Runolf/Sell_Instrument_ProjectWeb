@@ -16,7 +16,7 @@
     $number = (empty($_POST['number']))?$_SESSION['number'] : $_POST['number'];
 
     if (empty($_POST['password'])) {
-      $pswd = "coucou";
+      $pswd = $_SESSION['pswd'];
     }else{
         if ($_POST['password'] == $_POST['password_test']) {
             $pswd = $_POST['password'];

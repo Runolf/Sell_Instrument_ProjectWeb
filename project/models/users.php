@@ -49,9 +49,10 @@ class User{
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
 
+
     // password_hash($_POST['pswd'], PASSWORD_DEFAULT)
     $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
-    ':pswd' => $_pswd, ':city' => $_city,
+    ':pswd' => password_hash($_pswd, PASSWORD_DEFAULT), ':city' => $_city,
     ':street' => $_street, ':nbr' => $_nbr]);
 
     $response->closeCursor();
@@ -65,9 +66,8 @@ class User{
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
 
-    // password_hash($_POST['pswd'], PASSWORD_DEFAULT)
     $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
-    ':pswd' => $_pswd, ':city' => $_city,
+    ':pswd' => password_hash($_pswd, PASSWORD_DEFAULT), ':city' => $_city,
     ':street' => $_street, ':nbr' => $_nbr]);
 
     $response->closeCursor();
@@ -78,7 +78,7 @@ class User{
 
     $response = getDB()->prepare('SELECT * FROM `users` WHERE email = :email');
 
-    $response->setFetchMode(PDO::FETCH_CLASS/*|PDO::FETCH_PROPS_LATE*/, 'User');
+    $response->setFetchMode(PDO::FETCH_CLASS , 'User');
 
     $response->execute([':email' => $email]);
     $data = $response->fetch();

@@ -12,22 +12,27 @@
 
       $user = User::isUserExists($_POST['mail']);
 
-      if(!empty($user)){
-        $_SESSION['userId'] = $user->userId;
-        $_SESSION['pswd']   = $user->pswd;
-        $_SESSION['mail']   = $user->email;
-        $_SESSION['pseudo'] = $user->pseudo;
-        $_SESSION['city']   = $user->city;
-        $_SESSION['street'] = $user->street;
-        $_SESSION['number'] = $user->number;
-        $_SESSION['rating'] = $user->rating;
-        $_SESSION['RoleId'] = $user->RoleId;
+      if (password_verify($_POST['pswd'], $user->pswd)) {
+        if(!empty($user) && ($_POST['pswd'] != $user->pswd)){
+          $_SESSION['userId'] = $user->userId;
+          $_SESSION['pswd']   = $user->pswd;
+          $_SESSION['mail']   = $user->email;
+          $_SESSION['pseudo'] = $user->pseudo;
+          $_SESSION['city']   = $user->city;
+          $_SESSION['street'] = $user->street;
+          $_SESSION['number'] = $user->number;
+          $_SESSION['rating'] = $user->rating;
+          $_SESSION['RoleId'] = $user->RoleId;
 
-        header("Location: article");
-        exit();
+          header("Location: article");
+          exit();
+        }else{
+          $errorMessage = "ce mail/login n existe pas";
+        }
       }else{
-        $errorMessage = "ce mail/login n existe pas";
+        $errorMessage = "password incorrect";
       }
+
     }
   }
 

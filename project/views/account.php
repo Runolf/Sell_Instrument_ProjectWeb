@@ -23,7 +23,7 @@ ob_start();
 
   <div class="form-group">
       <label for="password">Password</label><br />
-      <input type="text" class="form-control form_address" id="password" name="password" value="<?=$_SESSION['pswd']?>">
+      <input type="text" class="form-control form_address" id="password" name="password">
       <input type="text" class="form-control form_address" id="password" name="password_test">
   </div>
 
