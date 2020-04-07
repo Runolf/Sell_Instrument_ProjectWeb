@@ -14,7 +14,13 @@ ob_start();
     <tr>
       <td><?= $user->pseudo ?></td>
       <td><?= $user->email ?></td>
-      <td> <div class="btn btn-delete-ownstyle">Delete</div></td>
+      <td>
+        <form action="<?= ROOT_PATH.'allclient' ?>" method="post">
+          <button <?php if ($user->pseudo == "admin") {
+              echo "disabled";
+          } ?> type="submit" class="btn btn-delete-ownstyle" value="<?= $user->userId ?>" name="delete">delete</button>
+        </form>
+      </td>
     </tr>
   <?php endforeach; ?>
   </tbody>

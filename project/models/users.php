@@ -78,7 +78,6 @@ class User{
   public static function delete($id){
     $response = getDB()->query('DELETE FROM users WHERE userId = '. $id);
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
-    $data = $response->fetch();
     $response->closeCursor();
   }
 
