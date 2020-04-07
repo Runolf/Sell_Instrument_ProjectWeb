@@ -21,12 +21,10 @@ require 'connectionDB.php';
 }
 
 public static function getAll(){
-
     $response = getDB()->query('SELECT * FROM articles');
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $datas = $response->fetchAll();
     $response->closeCursor();
-
     return $datas;
   }
 
@@ -38,6 +36,35 @@ public static function getAll(){
       return $data;
   }
 
+  public static function post($_name , $_brand , $_picture, $_price, $_comment){
+    $response = getDB()->prepare('INSERT INTO `articles` SET name = :name , brand = :brand,
+      picture = :picture, price = :price , comment = :comment');
+
+    $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+
+    $response->execute([':name' => $_name, ':brand' => $_brand,
+    ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
+
+    $response->closeCursor();
+  }
+
+  public static function modify($id, $_name , $_brand , $_picture, $_price, $_comment){
+    $response = getDB()->prepare('UPDATE `articles` SET name = :name , brand = :brand,
+      picture = :picture, price = :price , comment = :comment WHERE articleId = '.$id);
+
+    $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+
+    $response->execute([':name' => $_name, ':brand' => $_brand,
+    ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
+
+    $response->closeCursor();
+  }
+
+  public static function delete($id){
+    $response = getDB()->query('DELETE FROM articles WHERE articleId = '. $id);
+    $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+    $response->closeCursor();
+  }
 
 }
 ?>

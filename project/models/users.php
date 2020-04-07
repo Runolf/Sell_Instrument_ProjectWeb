@@ -93,7 +93,6 @@ class User{
     return $data;
   }
 
-
 }
 
  ?>
