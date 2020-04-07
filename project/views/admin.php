@@ -1,5 +1,5 @@
 <?php
-ob_start();
+  ob_start();
 ?>
 
 <p>
@@ -8,7 +8,7 @@ ob_start();
 </p>
 
 <?php
-$title = "administration panel";
-$content = ob_get_clean();
-include 'includes/template.php';
- ?>
+  $title = "administration panel";
+  $content = ob_get_clean();
+  include 'includes/template.php';
+?>
