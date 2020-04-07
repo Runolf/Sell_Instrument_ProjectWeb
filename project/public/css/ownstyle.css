@@ -23,6 +23,12 @@ h1 {
   margin-top: 100px;
 }
 
+@media (min-width: 992px) {
+  .logout{
+    position: absolute;
+    left: 92%;
+  }
+}
 
 /*     ARTICLES       */
 .container_art{
@@ -73,6 +79,38 @@ table{
   height: 100%;
   margin-top: 5%;
   text-align: center;
+  color: white;
+  background-color: rgba(120, 58, 0, 0.20);
+  border-color: black;
+}
+
+th{
+  height: 50px;
+  font-weight: 600;
+  font-size: 25px;
+  background-color: rgba(120, 58, 0, 0.60);
+}
+td{
+height: 100px;
+font-size: 19px;
+}
+
+.btn-delete-ownstyle {
+  color: #fff;
+  background-color: green;
+  border-color: white;
+}
+
+.btn-delete-ownstyle:hover {
+  color: #fff;
+  background-color: red;
+  border-color: black;
+}
+
+.btn-delete-ownstyle:active{
+  color: black;
+  background-color: white;
+  border-color: black;
 }
 
 

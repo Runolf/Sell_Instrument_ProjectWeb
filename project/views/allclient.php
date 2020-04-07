@@ -12,9 +12,9 @@ ob_start();
   <tbody>
   <?php foreach ($users as $user): ?>
     <tr>
-      <th><?= $user->pseudo ?></th>
-      <th><?= $user->email ?></th>
-      <th>delete</th>
+      <td><?= $user->pseudo ?></td>
+      <td><?= $user->email ?></td>
+      <td> <div class="btn btn-delete-ownstyle">Delete</div></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
