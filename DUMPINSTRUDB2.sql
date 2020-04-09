@@ -116,11 +116,6 @@ CREATE TABLE `users` (
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`RoleId`) REFERENCES `roles` (`roleId`)
 ) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
-/*Data for the table `users` */
-
-INSERT  INTO `users`(`userId`,`email`,`pseudo`,`pswd`,`city`,`street`,`number`,`rating`,`RoleId`) VALUES 
-(1,'alexandreliskiewicz@hotmail.com','Runolf','Test1234','Le Roeulx','Chaussée de Soignies','54',100.00,1);
-
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
