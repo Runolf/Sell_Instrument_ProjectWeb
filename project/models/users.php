@@ -11,6 +11,7 @@ class User{
   public $number;
   public $rating;
   public $RoleId;
+  public $DB;
 
   public function __construct($data=null){
     if(is_array($data)){
@@ -24,12 +25,13 @@ class User{
        $this->$number = $data["number"];
        $this->$rating = $data["rating"];
        $this->$RoleId = $data["RoleId"];
+       $this->DB = getDB();
     }
   }
 
   public static function getAll(){
 
-    $response = getDB()->query('SELECT * FROM users');
+    $response = $this->DB->query('SELECT * FROM users');
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
     $datas = $response->fetchAll();
     $response->closeCursor();
