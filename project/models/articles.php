@@ -1,5 +1,6 @@
 <?php
 // je ne déclare pas "require 'connectionDB.php'" car il existe déjà dans "require 'users.php'";
+require_once 'connectionDB.php';
 require 'users.php';
 
  class Article{
@@ -22,7 +23,8 @@ require 'users.php';
 }
 
 public static function getAll(){
-    $response = getDB()->query('SELECT * FROM articles');
+    global $DB;
+    $response = $DB->query('SELECT * FROM articles');
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $datas = $response->fetchAll();
     $response->closeCursor();
@@ -30,7 +32,8 @@ public static function getAll(){
   }
 
  public static function getById($id){
-      $response = getDB()->query('SELECT * FROM articles WHERE articleId = '. $id);
+      global $DB;
+      $response = $DB->query('SELECT * FROM articles WHERE articleId = '. $id);
       $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
       $data = $response->fetch();
       $response->closeCursor();
@@ -38,7 +41,8 @@ public static function getAll(){
   }
 
   public static function post($id, $_name , $_brand , $_picture, $_price, $_comment){
-    $response = getDB()->prepare('INSERT INTO `articles` SET name = :name , brand = :brand,
+    global $DB;
+    $response = $DB->prepare('INSERT INTO `articles` SET name = :name , brand = :brand,
       picture = :picture, price = :price , comment = :comment');
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
@@ -62,7 +66,7 @@ public static function getAll(){
   }
 
   public static function modify($id, $_name , $_brand , $_picture, $_price, $_comment){
-    $response = getDB()->prepare('UPDATE `articles` SET name = :name , brand = :brand,
+    $response = $DB->prepare('UPDATE `articles` SET name = :name , brand = :brand,
       picture = :picture, price = :price , comment = :comment WHERE articleId = '.$id);
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $response->execute([':name' => $_name, ':brand' => $_brand,
@@ -72,7 +76,7 @@ public static function getAll(){
   }
 
   public static function delete($id){
-    $response = getDB()->query('DELETE FROM articles WHERE articleId = '. $id);
+    $response = $DB->query('DELETE FROM articles WHERE articleId = '. $id);
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $response->closeCursor();
   }

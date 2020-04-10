@@ -1,6 +1,6 @@
 <?php
   require 'models/users.php';
-  $users = User::getAll();
+  // $users = User::getAll();
 
   if(!empty($_SESSION['mail'])){
       header("Location: article");

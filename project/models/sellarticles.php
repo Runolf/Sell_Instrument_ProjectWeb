@@ -1,5 +1,5 @@
 <?php
-  require 'connectionDB.php';
+  require_once 'connectionDB.php';
 
   class SellArticles{
 
@@ -15,6 +15,6 @@
       }
    }
 
-   
+
   }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require 'connectionDB.php';
+require_once 'connectionDB.php';
 
 class User{
   public $userId;
@@ -11,7 +11,6 @@ class User{
   public $number;
   public $rating;
   public $RoleId;
-  public $DB;
 
   public function __construct($data=null){
     if(is_array($data)){
@@ -25,13 +24,12 @@ class User{
        $this->$number = $data["number"];
        $this->$rating = $data["rating"];
        $this->$RoleId = $data["RoleId"];
-       $this->DB = getDB();
     }
   }
 
   public static function getAll(){
-
-    $response = $this->DB->query('SELECT * FROM users');
+    global $DB;
+    $response = $DB->query('SELECT * FROM users');
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
     $datas = $response->fetchAll();
     $response->closeCursor();
@@ -40,7 +38,8 @@ class User{
   }
 
   public static function getById($id){
-       $response = getDB()->query('SELECT * FROM users WHERE userId = '. $id);
+       global $DB;
+       $response = $DB->query('SELECT * FROM users WHERE userId = '. $id);
        $response->setFetchMode(PDO::FETCH_CLASS, 'User');
        $data = $response->fetch();
        $response->closeCursor();
@@ -48,7 +47,8 @@ class User{
    }
 
   public static function post($_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){ //mail, pseudo, city , street, nbr, pswd, confirm_password
-    $response = getDB()->prepare('INSERT INTO `users` SET email = :email, pseudo = :pseudo,
+    global $DB;
+    $response = $DB->prepare('INSERT INTO `users` SET email = :email, pseudo = :pseudo,
       pswd = :pswd,  city = :city, street = :street,  number = :nbr, RoleId = 2, rating = 0');
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
@@ -64,7 +64,8 @@ class User{
 
   public static function modify($id , $_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){
                             // UPDATE `users` SET rating = 50, RoleId = 2 WHERE userId = 7;
-    $response = getDB()->prepare('UPDATE `users` SET email = :email, pseudo = :pseudo,
+    global $DB;
+    $response = $DB->prepare('UPDATE `users` SET email = :email, pseudo = :pseudo,
       pswd = :pswd,  city = :city, street = :street,  number = :nbr WHERE userId ='.$id);
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
@@ -78,14 +79,16 @@ class User{
   }
 
   public static function delete($id){
-    $response = getDB()->query('DELETE FROM users WHERE userId = '. $id);
+    global $DB;
+    $response = $DB->query('DELETE FROM users WHERE userId = '. $id);
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
     $response->closeCursor();
   }
 
   public static function isUserExists($email){
 
-    $response = getDB()->prepare('SELECT * FROM `users` WHERE email = :email');
+    global $DB;
+    $response = $DB->prepare('SELECT * FROM `users` WHERE email = :email');
 
     $response->setFetchMode(PDO::FETCH_CLASS , 'User');
 
