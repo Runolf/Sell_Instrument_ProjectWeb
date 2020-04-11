@@ -8,7 +8,7 @@
         }
         else{
           User::post($_POST['mail'], $_POST['pseudo'] ,$_POST['pswd'], $_POST['city'], $_POST['street'], $_POST['nbr']);
-
+          
           header('Location: article');
         }
       }

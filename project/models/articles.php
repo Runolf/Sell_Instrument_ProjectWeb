@@ -14,8 +14,8 @@ require 'users.php';
  public function __construct($data=null){
    if (is_array($data)) {
      $this->$articleId = $data["articleId"];
-     $this->name = str_replace($data["name"], " ","_");
-     $this->brand = $data["brand"];
+     $this->$name = str_replace($data["name"], " ","_");
+     $this->$brand = $data["brand"];
      $this->$picture = $data["picture"];
      $this->$price = $data["price"];
      $this->$comment = $data["comment"];
@@ -50,16 +50,13 @@ public static function getAll(){
     $response->execute([':name' => $_name, ':brand' => $_brand,
     ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
 
-    $InsertedId = getDB()->query('SELECT MAX(articleId) FROM articles');
+    $InsertedId = $DB->lastInsertId();
     // ici je récupère la dernière valeur de la table article, qui est donc censé être l'article qui vient d'être insérer
     $IdUser =  $_SESSION["userId"];
 
-    $resp = getDB()->prepare("INSERT INTO sellarticles(articleId, userId) VALUES (:idArticle, :idUser)");
+    $resp = $DB->prepare("INSERT INTO sellarticles(articleId, userId) VALUES (:idArticle, :idUser)");
     $resp->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $resp->execute([':idArticle' => $InsertedId, ':idUser' => $IdUser]);
-    //ici ensuite je suis sensé faire l'insertion dans la table intermédaire qui est le shopping cart
-
-    // probablement encore du code ici mais pas encore réfléchi à ça
 
     $resp->closeCursor();
     $response->closeCursor();

@@ -70,9 +70,17 @@ class User{
 
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
 
-    $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
-    ':pswd' => password_hash($_pswd, PASSWORD_DEFAULT), ':city' => $_city,
-    ':street' => $_street, ':nbr' => $_nbr]);
+    if ($_pswd == $_SESSION['pswd']) {
+      $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
+      ':pswd' => $_SESSION['pswd'] , ':city' => $_city,
+      ':street' => $_street, ':nbr' => $_nbr]);
+    }
+    else {
+      $response->execute([':email' => $_mail, ':pseudo' => $_pseudo,
+      ':pswd' => password_hash($_pswd, PASSWORD_DEFAULT), ':city' => $_city,
+      ':street' => $_street, ':nbr' => $_nbr]);
+    }
+
 
     $response->closeCursor();
 
