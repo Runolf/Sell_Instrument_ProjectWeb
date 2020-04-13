@@ -73,6 +73,7 @@ public static function getAll(){
   }
 
   public static function delete($id){
+    // $nullableSellArticle = $DB->query();
     $response = $DB->query('DELETE FROM articles WHERE articleId = '. $id);
     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
     $response->closeCursor();

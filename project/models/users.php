@@ -88,8 +88,12 @@ class User{
 
   public static function delete($id){
     global $DB;
+    $deleteSellArticle = $DB->query('DELETE FROM sellarticles WHERE userId = '.$id);
     $response = $DB->query('DELETE FROM users WHERE userId = '. $id);
+
     $response->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+    $deleteSellArticle->closeCursor();
     $response->closeCursor();
   }
 
