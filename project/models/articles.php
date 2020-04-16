@@ -80,20 +80,41 @@ public static function getAll(){
   }
 
   public static function modify($id, $_name , $_brand , $_picture, $_price, $_comment){
-    try {
-      $response = $DB->prepare('UPDATE `articles` SET name = :name , brand = :brand,
-        picture = :picture, price = :price , comment = :comment WHERE articleId = '.$id);
-      $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
-      $response->execute([':name' => $_name, ':brand' => $_brand,
-      ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
+    global $DB;
+      try{
+        $response = $DB->prepare("UPDATE articles SET
+                                  name = :name ,
+                                  brand = :brand,
+                                  picture = :picture,
+                                  price = :price ,
+                                  comment = :comment
+                                  where articleId = :id");
 
-      $response->closeCursor();
-    } catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
-    }
+
+        $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+
+        $response->execute([
+                            ':name'    => $_name,
+                            ':brand'   => $_brand,
+                            ':picture' => $_picture ,
+                            ':price'   => $_price,
+                            ':comment' => $_comment,
+                            ':id'      => $id
+                          ]);
+
+
+
+        $response->closeCursor();
+      }catch (Exception $e) {
+          die('Erreur : ' . $e->getMessage());
+      }
+
+
   }
 
   public static function delete($id){
+    global $DB;
+
     try {
 
       // $nullableSellArticle = $DB->query();

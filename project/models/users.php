@@ -82,6 +82,19 @@ class User{
 
    }
 
+   public static function addToCart(){
+     global $DB;
+     try {
+
+       
+
+     } catch (Exception $e) {
+       die('Erreur : ' . $e->getMessage());
+     }
+
+
+   }
+
   public static function post($_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){ //mail, pseudo, city , street, nbr, pswd, confirm_password
     global $DB;
     try {

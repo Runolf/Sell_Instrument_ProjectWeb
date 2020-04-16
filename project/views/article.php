@@ -9,6 +9,8 @@
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
 </dl>
 
+  <a href="<?= ROOT_PATH.'article/' ?>"></a>
+
 <?php
   $title = $article->name;
   $content = ob_get_clean();
