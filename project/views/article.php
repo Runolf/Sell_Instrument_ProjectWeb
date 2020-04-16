@@ -5,6 +5,8 @@
   <dd class="col-sm-10"><?=$article->brand; ?></dd>
   <dt class="col-sm-2">price: </dt>
   <dd class="col-sm-10"><?=$article->price; ?></dd>
+  <dt class="col-sm-2">Description: </dt>
+  <dd class="col-sm-10"><?=$article->comment; ?></dd>
 </dl>
 
 <?php

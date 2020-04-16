@@ -16,9 +16,7 @@
            <h5 class=""><?=$article->brand?></h5>
            <h5 class=""><?=$article->comment?></h5>
            <h5 class=""><?=$article->picture?></h5>
-           <form class="" action="editArticle/<?=$article->articleId ?>" method="post">
-            <h5><button type="submit" class="btn btn-primary btn-lg" id="button" name="button">Edit this article</button></h5>
-           </form>
+           <h5><a href="<?= ROOT_PATH.'editArticle/'.$article->articleId ?>">edit this article</a></h5>
        </div>
      </div>
   </div>
