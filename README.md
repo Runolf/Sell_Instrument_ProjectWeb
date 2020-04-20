@@ -18,6 +18,7 @@ comme suis:
 ```
 
 Ajouter à la fin du fichier "httpd-vhosts.conf":  
+(Veuillez ajouter le chemin menant à votre propre dossier)
 ```
 <Directory "C:\xampp\htdocs\Sell_Instrument_ProjectWeb\project">  
 AllowOverride All  
