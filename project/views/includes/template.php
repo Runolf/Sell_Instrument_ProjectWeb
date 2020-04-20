@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/bootstrap.min.css">
       <!--  <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/sticky-footer-navbar.css"> -->
         <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/ownstyle.css">

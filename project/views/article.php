@@ -1,5 +1,6 @@
 <?php ob_start() ?>
 <br>
+<img src="../image/<?= $article->picture; ?>" alt="an image">
 <dl class="row">
   <dt class="col-sm-2">brand: </dt>
   <dd class="col-sm-10"><?=$article->brand; ?></dd>
