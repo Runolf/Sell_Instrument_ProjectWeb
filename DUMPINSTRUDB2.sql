@@ -32,6 +32,7 @@ CREATE TABLE `articles` (
 
 /*Data for the table `articles` */
 
+/*
 INSERT  INTO `articles`(`articleId`,`name`,`brand`,`picture`,`price`,`comment`) VALUES 
 (1,'cort zenox','cort','C:UsersalexaDocumentsprojetdevSell_Instrument_ProjectWebprojectimgcort_zenox.jpg',300.99,'amazing guitar'),
 (2,'Bodhran','Gaia','*',50.99,'Beautiful bodhran from Ireland'),
@@ -40,6 +41,7 @@ INSERT  INTO `articles`(`articleId`,`name`,`brand`,`picture`,`price`,`comment`) 
 (5,'Lenovo 41441','Pc Master Race','...',999.99,'OK BOOMER'),
 (6,'Skyrim celeste','Jeu video','...',15.99,'Nope'),
 (7,'Wars','Star','...',999.99,'I have a bad feeling about this!');
+*/
 
 /*Table structure for table `carts` */
 
@@ -55,11 +57,6 @@ CREATE TABLE `carts` (
   CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`articleId`) REFERENCES `articles` (`articleId`),
   CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-/*Data for the table `carts` */
-
-INSERT  INTO `carts`(`cartId`,`articleId`,`userId`) VALUES 
-(1,1,3);
 
 /*Table structure for table `roles` */
 
@@ -92,11 +89,6 @@ CREATE TABLE `sellarticles` (
   CONSTRAINT `sellarticles_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
-/*Data for the table `sellarticles` */
-
-INSERT  INTO `sellarticles`(`sellArticleId`,`articleId`,`userId`) VALUES 
-(1,1,2);
-
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -105,7 +97,7 @@ CREATE TABLE `users` (
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(50) NOT NULL,
   `pseudo` VARCHAR(50) NOT NULL,
-  `pswd` VARCHAR(50) NOT NULL,
+  `pswd` VARCHAR(100) NOT NULL,
   `city` VARCHAR(50) NOT NULL,
   `street` VARCHAR(50) NOT NULL,
   `number` VARCHAR(50) NOT NULL,
@@ -115,7 +107,6 @@ CREATE TABLE `users` (
   KEY `RoleId` (`RoleId`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`RoleId`) REFERENCES `roles` (`roleId`)
 ) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
