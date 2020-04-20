@@ -8,6 +8,10 @@ Installation
 
 Pré-requis : Xamp  
 
+A la création de la DB, aucun admin n'est créé.  
+Il faut passer par la site, créer un compte puis
+dans le sgbd, modifier son roleId à 1;  
+
 Editer le fichier hosts dans "C:\Windows\System32\drivers\etc"  
 comme suis:  
 
