@@ -14,8 +14,8 @@
     }
 
     if (REQ_ACTION == "buy") {
-      // code...
+      $errorMessage = "TEST BUY";
+      header("Location: ".ROOT_PATH);
+
     }
-
-
  ?>
