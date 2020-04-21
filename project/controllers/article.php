@@ -15,7 +15,7 @@
 
     if (REQ_ACTION == "buy") {
       $errorMessage = "TEST BUY";
-      header("Location: ".ROOT_PATH);
+      include 'views/cart.php';
 
     }
  ?>

@@ -59,7 +59,7 @@ public static function getAll(){
         picture = :picture, price = :price , comment = :comment');
 
       $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
-
+      
       $response->execute([':name' => $_name, ':brand' => $_brand,
       ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
 

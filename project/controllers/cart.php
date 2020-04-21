@@ -1,7 +1,14 @@
 <?php
   require_once 'models/users.php';
+  require_once 'models/articles.php';
 
-  User::addToCart(REQ_TYPE_ID, $_SESSION["userId"]);
+  if (REQ_ACTION == "add") {
+    $article = Article::getById(REQ_TYPE_ID);
 
-  include 'views/cart.php';
+    User::addToCart(REQ_TYPE_ID, $_SESSION["userId"]);
+
+    $errorMessage = "Achat effectué";
+    include 'views/cart.php';
+  }
+
  ?>

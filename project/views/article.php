@@ -11,7 +11,7 @@
 </dl>
 
   <a href="<?= /*ROOT_PATH.'article/'.$article->articleId.'/buy' */
-              ROOT_PATH.'cart/'.$article->articleId
+              ROOT_PATH.'cart/'.$article->articleId.'/add'
   ?>">BUY</a>
 
 <?php
