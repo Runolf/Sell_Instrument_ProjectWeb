@@ -82,11 +82,17 @@ class User{
 
    }
 
-   public static function addToCart(){
+   public static function addToCart($_IdArticle, $_IdUser){
      global $DB;
      try {
 
-       
+       $response = $DB->prepare('INSERT INTO carts (articleId, userId) VALUES (:idArticle , :idUser)');
+       $response->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+       $response->execute([':idArticle' => $_IdArticle,
+                           ':idUser'    => $_IdUser]);
+
+       $response->closeCursor();
 
      } catch (Exception $e) {
        die('Erreur : ' . $e->getMessage());
