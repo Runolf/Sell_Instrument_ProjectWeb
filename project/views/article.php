@@ -10,9 +10,7 @@
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
 </dl>
 
-  <a href="<?= /*ROOT_PATH.'article/'.$article->articleId.'/buy' */
-              ROOT_PATH.'cart/'.$article->articleId.'/add'
-  ?>">BUY</a>
+  <a href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY</a>
 
 <?php
   $title = $article->name;
