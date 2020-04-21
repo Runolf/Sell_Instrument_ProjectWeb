@@ -47,6 +47,9 @@
           if(!empty($errorMessage)){
               include('error.php');
           }
+          if(!empty($msg)){
+            include('msg.php');
+          }
           ?>
             <h1 class="text-white"><?php echo $title; ?></h1>
             <?php echo $content; ?>

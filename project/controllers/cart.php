@@ -7,7 +7,7 @@
 
     User::addToCart(REQ_TYPE_ID, $_SESSION["userId"]);
 
-    $errorMessage = "Achat effectué";
+    $msg = "Achat de l'article: ". $article->name." de la marque: ".$article->brand." effectué";
     include 'views/cart.php';
   }
 
