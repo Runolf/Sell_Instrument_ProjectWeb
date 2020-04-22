@@ -137,10 +137,16 @@ public static function getAll(){
 
     try {
 
-      // $nullableSellArticle = $DB->query();
+      $deleteCart = $DB->query('DELETE FROM carts WHERE articleId = '. $id);
+      $deleteSell = $DB->query('DELETE FROM sellarticles WHERE articleId = '. $id);
       $response = $DB->query('DELETE FROM articles WHERE articleId = '. $id);
+
       $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+
       $response->closeCursor();
+      $deleteSell->closeCursor();
+      $deleteCart->closeCursor();
+
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }

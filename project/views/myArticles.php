@@ -17,6 +17,7 @@
            <h5 class=""><?=$article->comment?></h5>
            <h5 class=""><?=$article->picture?></h5>
            <h5><a href="<?= ROOT_PATH.'editArticle/'.$article->articleId ?>">edit this article</a></h5>
+           <h5><a href="<?= ROOT_PATH.'article/'.$article->articleId.'/delete' ?>">delete this article</a></h5>
        </div>
      </div>
   </div>

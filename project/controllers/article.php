@@ -14,9 +14,13 @@
 
     }
 
+    if (REQ_ACTION == "delete") {
+      Article::delete(REQ_TYPE_ID);
+      header("Location: myArticles");
+    }
+
     if (REQ_ACTION == "buy") {
       $errorMessage = "TEST BUY";
       include 'views/cart.php';
-
     }
  ?>
