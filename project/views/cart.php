@@ -1,6 +1,10 @@
 <?php ob_start() ?>
 
-  <p>Achat de l'article : <?= $article->name ." de la marque: ".$article->brand." effectué" ?></p>
+<?php foreach($orders as $order):?>
+
+  <p><?= $order->brand ?></p>
+
+  <?php endforeach?>
 
 <?php
   $title = "My cart";

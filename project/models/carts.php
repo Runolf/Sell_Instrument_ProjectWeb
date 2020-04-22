@@ -46,7 +46,16 @@ class Cart{
    public static function getCartClient($idUser){
      global $DB;
      try {
-       $response = $DB->query('SELECT * FROM carts WHERE userId = '.$idUser);
+       //$response = $DB->query('SELECT * FROM carts WHERE userId = '.$idUser);
+
+       $response = $DB->query('
+       SELECT A.articleId, A.name, A.brand, A.picture, A.price, A.comment
+      FROM carts AS C
+      JOIN articles AS A
+      ON C.articleId = A.articleId
+      WHERE userId =
+       ' .$idUser);
+
        $response->setFetchMode(PDO::FETCH_CLASS, 'Cart');
        $datas = $response->fetchAll();
        $response->closeCursor();
@@ -91,6 +100,5 @@ class Cart{
         die('Erreur : ' . $e->getMessage());
     }
   }
-
-
- ?>
+}
+?>

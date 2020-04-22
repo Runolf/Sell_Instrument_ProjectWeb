@@ -10,8 +10,9 @@
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
 </dl>
 
+  <?php if (!empty($_SESSION['mail'])):  ?>
   <a href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY</a>
-
+  <?php endif ?>
 <?php
   $title = $article->name;
   $content = ob_get_clean();
