@@ -60,16 +60,14 @@ class User{
 
    public static function getArticles($idUser){
 
-     /*
-        SELECT a.articleId, a.name, a.brand, a.picture, a.price, a.comment
-        FROM articles AS a
-        INNER JOIN sellarticles AS s
-        ON a.articleId = s.articleId
-        WHERE s.userId = 1;
-     */
      global $DB;
      try {
-       $response = $DB->query('SELECT a.articleId , a.name , a.brand , a.picture , a.price , a.comment FROM articles AS a INNER JOIN sellarticles AS s ON a.articleId = s.articleId WHERE s.userId = '.$idUser);
+       $response = $DB->query('SELECT a.articleId , a.name , a.brand , a.picture , a.price , a.comment
+                               FROM articles AS a
+                               INNER JOIN sellarticles AS s
+                               ON a.articleId = s.articleId
+                               WHERE s.userId = '.$idUser);
+                               
        $response->setFetchMode(PDO::FETCH_CLASS, 'User');
        $data = $response->fetchAll();
        $response->closeCursor();

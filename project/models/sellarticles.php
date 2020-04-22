@@ -19,7 +19,7 @@
 
    public static function delete(){
 
-     
+
    }
 
   }

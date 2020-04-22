@@ -51,6 +51,26 @@ public static function getAll(){
       }
   }
 
+  public static function getUser($_idUser){
+    global $DB;
+    try {
+      $response = $DB->query('
+      SELECT u.userId, u.email , u.pseudo, u.pswd ,u.city, u.street, u.number, u.rating, u.RoleId
+      FROM users AS u
+      JOIN sellarticles AS sa
+      ON u.userId = sa.userId
+      WHERE sa.userId =
+      '.$_idUser .' LIMIT 1');
+
+      $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+      $data = $response->fetchAll();
+      $response->closeCursor();
+      return $data;
+
+    } catch (Exception $e) {
+      die('Erreur : ' . $e->getMessage());
+    }
+  }
 
   public static function post($id, $_name , $_brand , $_picture, $_price, $_comment){
     global $DB;
@@ -59,7 +79,7 @@ public static function getAll(){
         picture = :picture, price = :price , comment = :comment');
 
       $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
-      
+
       $response->execute([':name' => $_name, ':brand' => $_brand,
       ':picture' => $_picture , ':price' => $_price, ':comment' => $_comment]);
 

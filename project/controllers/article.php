@@ -7,6 +7,7 @@
         $articles = Article::getAll(); // accès aux methodes static. pas de -> ou de .
         include 'views/articles.php';
       }else{
+        $dude = Article::getUser(REQ_TYPE_ID);
         $article = Article::getById(REQ_TYPE_ID);
         include 'views/article.php';
       }
