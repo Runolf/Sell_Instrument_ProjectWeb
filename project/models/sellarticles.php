@@ -15,6 +15,12 @@
       }
    }
 
+   // pas de post ici car il se trouve dans le post du modele article
+
+   public static function delete(){
+
+     
+   }
 
   }
 ?>

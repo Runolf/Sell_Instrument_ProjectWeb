@@ -9,9 +9,14 @@
     Cart::addToCart(REQ_TYPE_ID, $_SESSION["userId"]);
 
     $msg = "Achat de l'article: ". $article->name." de la marque: ".$article->brand." effectué";
-
-  }else {
+    header("Location: cart");
+  }
+  elseif (REQ_ACTION == "delete") {
+    Cart::delete(REQ_TYPE_ID, $_SESSION["userId"]);
+  }
+  else {
     $orders = Cart::getCartClient($_SESSION['userId']);
+
   }
 
   include 'views/cart.php';

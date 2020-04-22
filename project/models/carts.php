@@ -87,11 +87,11 @@ class Cart{
    // pas de modify car cela n'a pas de sens de modifier une commande dans ce cas ci.
 
 
-  public static function delete($id){
+  public static function delete($_IdArticle, $_IdUser){
     global $DB;
 
     try {
-       $DB->query('DELETE FROM carts WHERE cartId = '.$id);
+      $response = $DB->query('DELETE FROM carts WHERE articleId ='.$_IdArticle.' AND userId = '.$_IdUser);
 
       $response->setFetchMode(PDO::FETCH_CLASS, 'Cart');
 
