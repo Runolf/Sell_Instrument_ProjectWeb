@@ -16,6 +16,7 @@
 
     if (REQ_ACTION == "delete") {
       Article::delete(REQ_TYPE_ID);
+      include 'views/myArticles.php';
       header("Location: myArticles");
     }
 

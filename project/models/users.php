@@ -67,7 +67,7 @@ class User{
                                INNER JOIN sellarticles AS s
                                ON a.articleId = s.articleId
                                WHERE s.userId = '.$idUser);
-                               
+
        $response->setFetchMode(PDO::FETCH_CLASS, 'User');
        $data = $response->fetchAll();
        $response->closeCursor();
