@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <script defer type="text/javascript" src="<?=ROOT_PATH?>public/js/index.js" charset="utf-8"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/bootstrap.min.css">
       <!--  <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/sticky-footer-navbar.css"> -->
         <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/ownstyle.css">

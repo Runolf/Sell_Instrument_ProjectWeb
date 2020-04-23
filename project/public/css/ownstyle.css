@@ -30,6 +30,10 @@ h1 {
   }
 }
 
+  .star_checked{
+    color: orange;
+  }
+
 /*     ARTICLES       */
 .container_art{
   display: flex;
