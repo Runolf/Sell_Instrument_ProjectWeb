@@ -110,7 +110,6 @@ public static function getAll(){
                                   \'comment\' = :comment
                                   where articleId = :id");
 
-
         $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
 
         $response->execute([
