@@ -9,7 +9,7 @@
         <div class="card_title">
             <?=$order->brand." ".$order->name?>
         </div>
-        
+
         <div class="card_body">
             <h5>Price : <?= $order->price?> €</h5>
             <br />

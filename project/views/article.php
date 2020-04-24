@@ -12,20 +12,24 @@
   <dd class="col-sm-10"><?=$article->price; ?></dd>
   <dt class="col-sm-2">Description: </dt>
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
-  <dt class="col-sm-2">Stars</dt>
-  <dd class="col-sm-10">
-    <span class="fas fa-star" data-star="1"></span>
-    <span class="fas fa-star" data-star="2"></span>
-    <span class="fas fa-star" data-star="3"></span>
-    <span class="fas fa-star" data-star="4"></span>
-    <span class="fas fa-star" data-star="5"></span>
-    &nbsp; rating : <span class="rating"> - </span>
-  </dd>
-</dl>
 
   <?php if (!empty($_SESSION['mail'])):  ?>
-  <a href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY</a>
+
+    <dt class="col-sm-2">Stars</dt>
+    <dd class="col-sm-10">
+      <span class="fas fa-star" data-star="1"></span>
+      <span class="fas fa-star" data-star="2"></span>
+      <span class="fas fa-star" data-star="3"></span>
+      <span class="fas fa-star" data-star="4"></span>
+      <span class="fas fa-star" data-star="5"></span>
+      &nbsp; rating : <span class="rating"> - </span>
+    </dd>
+
+    <a class="btn btn-primary" href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY article</a>
+
   <?php endif ?>
+
+  </dl>
 
 <?php
   $title = $article->name;

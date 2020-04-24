@@ -1,5 +1,5 @@
 <?php
-    require 'models/articles.php';
+    require_once 'models/articles.php';
 
     if (!REQ_ACTION) {
 
@@ -18,10 +18,7 @@
       Article::delete(REQ_TYPE_ID);
       include 'views/myArticles.php';
       header("Location: myArticles");
+      exit();
     }
 
-    if (REQ_ACTION == "buy") {
-      $errorMessage = "TEST BUY";
-      include 'views/cart.php';
-    }
  ?>

@@ -43,6 +43,27 @@ class Cart{
        }
    }
 
+   public static function getAllOrders(){
+
+     global $DB;
+
+     try {
+       $response = $DB->query('SELECT a.articleId, a.name, a.brand, a.picture, a.price, a.comment
+                               FROM articles AS a
+                               JOIN carts AS c
+                               ON a.articleId = c.articleId');
+
+      $response->setFetchMode(PDO::FETCH_CLASS, 'Cart');
+      $datas = $response->fetchAll();
+      $response->closeCursor();
+      return $datas;
+
+     } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+     }
+
+   }
+
    public static function getCartClient($idUser){
      global $DB;
      try {

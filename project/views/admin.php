@@ -2,10 +2,11 @@
   ob_start();
 ?>
 <script type="text/javascript" src="../public/js/charts.js"></script>
-  <p>
-    see all clients:
-    <a href="<?=ROOT_PATH?>allclient">HERE</a>
-  </p>
+
+<div class="list-group">
+  <a href="<?=ROOT_PATH?>allclient" class="list-group-item list-group-item-action list-group-item-secondary">all clients</a>
+  <a href="<?=ROOT_PATH?>allorders" class="list-group-item list-group-item-action list-group-item-secondary">all orders</a>
+</div>
 
   <br />
 
