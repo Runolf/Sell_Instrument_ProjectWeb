@@ -12,7 +12,7 @@ ob_start();
     <div class="container_art">
 
     <?php foreach($articles as $article):?>
-
+      
         <div class="card text-center">
           <div class="card_title">
               <?=$article->name?>
@@ -21,7 +21,7 @@ ob_start();
           <div class="card_body">
               <h5 class=""><?=$article->price?></h5>
               <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn_detail btn btn-primary">Voir le détail</a>
-              
+
           </div>
         </div>
 

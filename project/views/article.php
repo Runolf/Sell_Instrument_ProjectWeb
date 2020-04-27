@@ -13,7 +13,7 @@
   <dt class="col-sm-2">Description: </dt>
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
 
-  <?php if (!empty($_SESSION['mail'])):  ?>
+  <?php if (!empty($_SESSION['mail']) && $_SESSION['RoleId'] != 1):  ?>
 
     <dt class="col-sm-2">Stars</dt>
     <dd class="col-sm-10">
@@ -22,11 +22,11 @@
       <span class="fas fa-star" data-star="3"></span>
       <span class="fas fa-star" data-star="4"></span>
       <span class="fas fa-star" data-star="5"></span>
+
       &nbsp; rating : <span class="rating"> - </span>
     </dd>
-
-    <a class="btn btn-primary" href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY article</a>
-
+      <a class="btn btn-primary" href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY article</a>
+    
   <?php endif ?>
 
   </dl>

@@ -2,6 +2,7 @@
   require_once 'models/users.php';
   require_once 'models/articles.php';
   require_once 'models/carts.php';
+  require_once 'models/sellarticles.php';
 
   if (REQ_ACTION == "add") {
     $article = Article::getById(REQ_TYPE_ID);
@@ -10,6 +11,9 @@
 
     $msg = "Achat de l'article: ". $article->name." de la marque: ".$article->brand." effectué";
     header("Location: cart");
+  }
+  elseif (REQ_ACTION == "validate") {
+    SellArticle::delete(REQ_TYPE_ID);
   }
   elseif (REQ_ACTION == "delete") {
     Cart::delete(REQ_TYPE_ID, $_SESSION["userId"]);

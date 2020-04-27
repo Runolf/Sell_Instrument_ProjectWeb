@@ -12,8 +12,10 @@
 
         <div class="card_body">
             <h5>Price : <?= $order->price?> €</h5>
-            <br />
             <a href="<?=ROOT_PATH.'article/'.$order->articleId?>" class=" btn btn-primary">See details</a>
+            <br />
+            <br />
+            <a href="<?=ROOT_PATH.'cart/'.$order->articleId?>/validate" class=" btn btn-primary">Validate order</a>
             <br />
            <a href="<?=ROOT_PATH.'cart/'.$order->articleId.'/delete' ?>" class="btn-delete-ownstyle btn btn-primary">Delete order</a>
         </div>

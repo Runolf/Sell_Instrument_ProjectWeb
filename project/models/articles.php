@@ -37,6 +37,26 @@ public static function getAll(){
 
   }
 
+ public static function getAllActives(){
+   global $DB;
+   try{
+     $response = $DB->query('SELECT a.articleId, a.name, a.brand, a.picture, a.price , a.comment
+       FROM articles AS a
+       JOIN sellarticles AS sa
+       ON a.articleId = sa.articleId
+       WHERE sa.active = 1');
+
+     $response->setFetchMode(PDO::FETCH_CLASS, 'Article');
+     $datas = $response->fetchAll();
+     $response->closeCursor();
+     return $datas;
+   }
+   catch(Exception $e){
+     die('Erreur : ' . $e->getMessage());
+   }
+
+ }
+
  public static function getById($id){
       global $DB;
       try {
@@ -87,9 +107,9 @@ public static function getAll(){
       // ici je récupère la dernière valeur de la table article, qui est donc censé être l'article qui vient d'être insérer
       $IdUser =  $_SESSION["userId"];
 
-      $resp = $DB->prepare("INSERT INTO sellarticles(articleId, userId) VALUES (:idArticle, :idUser)");
+      $resp = $DB->prepare("INSERT INTO sellarticles(articleId, userId, active) VALUES (:idArticle, :idUser, :active)");
       $resp->setFetchMode(PDO::FETCH_CLASS, 'Article');
-      $resp->execute([':idArticle' => $InsertedId, ':idUser' => $IdUser]);
+      $resp->execute([':idArticle' => $InsertedId, ':idUser' => $IdUser, ':active' => 1]);
 
       $resp->closeCursor();
       $response->closeCursor();
