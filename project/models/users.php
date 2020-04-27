@@ -80,6 +80,27 @@ class User{
 
    }
 
+   public static function getUserByHisArticle($_idUser){
+     global $DB;
+     try {
+       $response = $DB->query('
+       SELECT u.userId, u.email , u.pseudo, u.pswd ,u.city, u.street, u.number, u.rating, u.RoleId
+       FROM users AS u
+       JOIN sellarticles AS sa
+       ON u.userId = sa.userId
+       WHERE sa.userId =
+       '.$_idUser);
+
+       $response->setFetchMode(PDO::FETCH_CLASS, 'User');
+       $data = $response->fetchAll();
+       $response->closeCursor();
+       return $data;
+
+     } catch (Exception $e) {
+       die('Erreur : ' . $e->getMessage());
+     }
+   }
+
   public static function post($_mail, $_pseudo, $_pswd, $_city, $_street, $_nbr){ //mail, pseudo, city , street, nbr, pswd, confirm_password
     global $DB;
     try {

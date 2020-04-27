@@ -123,11 +123,11 @@ public static function getAll(){
     global $DB;
       try{
         $response = $DB->prepare("UPDATE articles SET
-                                  \'name\' = :name ,
+                                  `name` = :name ,
                                   brand = :brand,
                                   picture = :picture,
                                   price = :price ,
-                                  \'comment\' = :comment
+                                  `comment` = :comment
                                   where articleId = :id");
 
         $response->setFetchMode(PDO::FETCH_CLASS, 'Article');

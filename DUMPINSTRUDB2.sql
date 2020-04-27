@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.2 (64 bit)
-MySQL - 10.4.11-MariaDB : Database - instrumagasin
+MySQL - 10.4.10-MariaDB : Database - instrumagasin
 *********************************************************************
 */
 
@@ -21,92 +21,74 @@ USE `instrumagasin`;
 DROP TABLE IF EXISTS `articles`;
 
 CREATE TABLE `articles` (
-  `articleId` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) DEFAULT NULL,
-  `brand` VARCHAR(50) DEFAULT NULL,
-  `picture` VARCHAR(255) DEFAULT NULL,
-  `price` DECIMAL(5,2) DEFAULT NULL,
-  `comment` VARCHAR(255) DEFAULT NULL,
+  `articleId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `brand` varchar(50) DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `price` decimal(5,2) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`articleId`)
-) ENGINE=INNODB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
-/*Data for the table `articles` */
-
-/*
-INSERT  INTO `articles`(`articleId`,`name`,`brand`,`picture`,`price`,`comment`) VALUES 
-(1,'cort zenox','cort','C:UsersalexaDocumentsprojetdevSell_Instrument_ProjectWebprojectimgcort_zenox.jpg',300.99,'amazing guitar'),
-(2,'Bodhran','Gaia','*',50.99,'Beautiful bodhran from Ireland'),
-(3,'stagg 457','stagg','...',99.99,'shitty guitar'),
-(4,'Bat 1452','Batterie','...',998.99,'wtf'),
-(5,'Lenovo 41441','Pc Master Race','...',999.99,'OK BOOMER'),
-(6,'Skyrim celeste','Jeu video','...',15.99,'Nope'),
-(7,'Wars','Star','...',999.99,'I have a bad feeling about this!');
-*/
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `carts` */
 
 DROP TABLE IF EXISTS `carts`;
 
 CREATE TABLE `carts` (
-  `cartId` INT(11) NOT NULL AUTO_INCREMENT,
-  `articleId` INT(11) DEFAULT NULL,
-  `userId` INT(11) DEFAULT NULL,
+  `cartId` int(11) NOT NULL AUTO_INCREMENT,
+  `articleId` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
   PRIMARY KEY (`cartId`),
   KEY `articleId` (`articleId`),
   KEY `userId` (`userId`),
   CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`articleId`) REFERENCES `articles` (`articleId`),
   CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
-) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `roles` */
 
 DROP TABLE IF EXISTS `roles`;
 
 CREATE TABLE `roles` (
-  `roleId` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) DEFAULT NULL,
+  `roleId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`roleId`)
-) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `roles` */
-
-INSERT  INTO `roles`(`roleId`,`name`) VALUES 
-(1,'admin'),
-(2,'user');
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `sellarticles` */
 
 DROP TABLE IF EXISTS `sellarticles`;
 
 CREATE TABLE `sellarticles` (
-  `sellArticleId` INT(11) NOT NULL AUTO_INCREMENT,
-  `articleId` INT(11) DEFAULT NULL,
-  `userId` INT(11) DEFAULT NULL,
+  `sellArticleId` int(11) NOT NULL AUTO_INCREMENT,
+  `articleId` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `active` tinyint(4) DEFAULT 1,
   PRIMARY KEY (`sellArticleId`),
   KEY `articleId` (`articleId`),
   KEY `userId` (`userId`),
   CONSTRAINT `sellarticles_ibfk_1` FOREIGN KEY (`articleId`) REFERENCES `articles` (`articleId`),
   CONSTRAINT `sellarticles_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
-) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `userId` INT(11) NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(50) NOT NULL,
-  `pseudo` VARCHAR(50) NOT NULL,
-  `pswd` VARCHAR(100) NOT NULL,
-  `city` VARCHAR(50) NOT NULL,
-  `street` VARCHAR(50) NOT NULL,
-  `number` VARCHAR(50) NOT NULL,
-  `rating` DECIMAL(5,2) DEFAULT NULL,
-  `RoleId` INT(11) DEFAULT NULL,
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL,
+  `pseudo` varchar(50) NOT NULL,
+  `pswd` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `number` varchar(50) NOT NULL,
+  `rating` decimal(5,2) DEFAULT NULL,
+  `RoleId` int(11) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   KEY `RoleId` (`RoleId`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`RoleId`) REFERENCES `roles` (`roleId`)
-) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
