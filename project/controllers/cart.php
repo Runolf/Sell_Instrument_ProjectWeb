@@ -19,6 +19,13 @@
     Cart::delete(REQ_TYPE_ID, $_SESSION["userId"]);
   }
   else {
+    $soldarticle = SellArticle::getOne();
+    if ($soldarticle->active == 1) {
+      $isValide = 1;
+    }
+    else{
+      $isValide = 0;
+    }
     $orders = Cart::getCartClient($_SESSION['userId']);
 
   }

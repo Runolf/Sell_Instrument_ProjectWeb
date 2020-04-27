@@ -4,6 +4,8 @@
     <div class="container_art">
 
     <?php foreach($orders as $order):?>
+
+      <?= $isValide ?>
       <div class="card text-center">
 
         <div class="card_title">

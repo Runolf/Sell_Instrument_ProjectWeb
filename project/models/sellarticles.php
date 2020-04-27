@@ -16,7 +16,21 @@
         $this->$active = $data["active"];
       }
    }
-   
+
+   public static function getOne($_IdArticle){
+     global $DB;
+     try {
+       $response = $DB->query('SELECT * FROM sellarticles WHERE articleId = '. $_IdArticle);
+       $response->setFetchMode(PDO::FETCH_CLASS, 'SellArticle');
+       $data = $response->fetch();
+       $response->closeCursor();
+       return $data;
+
+     } catch (Exception $e) {
+       die('Erreur : ' . $e->getMessage());
+     }
+   }
+
    // pas de post ici car il se trouve dans le post du modele article
 
    public static function delete($_IdArticle){
