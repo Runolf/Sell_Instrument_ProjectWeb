@@ -8,10 +8,9 @@
         $articles = Article::getAllActives(); // accès aux methodes static. pas de -> ou de .
         include 'views/articles.php';
       }else{
-        // $dude = Article::getUser(REQ_TYPE_ID);
+        
         $dude = User::getUserByHisArticle(REQ_TYPE_ID);
-        var_dump($dude);
-         die();
+
         $article = Article::getById(REQ_TYPE_ID);
         include 'views/article.php';
       }

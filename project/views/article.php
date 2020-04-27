@@ -4,7 +4,7 @@
 
 <img src="../image/<?= $article->picture; ?>" alt="an image">
 <dl class="row">
-  <dt class="col-sm-2">vendeur: </dt>
+  <dt class="col-sm-2">seller: </dt>
   <dd class="col-sm-10"><?= $dude->pseudo; ?></dd>
   <dt class="col-sm-2">brand: </dt>
   <dd class="col-sm-10"><?=$article->brand; ?></dd>
@@ -12,7 +12,8 @@
   <dd class="col-sm-10"><?=$article->price; ?></dd>
   <dt class="col-sm-2">Description: </dt>
   <dd class="col-sm-10"><?=$article->comment; ?></dd>
-
+  <dt class="col-sm-2">contact: </dt>
+  <dd class="col-sm-10"><?= $dude->email; ?></dd>
   <?php if (!empty($_SESSION['mail']) && $_SESSION['RoleId'] != 1):  ?>
 
     <dt class="col-sm-2">Stars</dt>
@@ -26,9 +27,8 @@
       &nbsp; rating : <span class="rating"> - </span>
     </dd>
       <a class="btn btn-primary" href="<?= ROOT_PATH.'cart/'.$article->articleId.'/add' ?>">BUY article</a>
-    
-  <?php endif ?>
 
+  <?php endif ?>
   </dl>
 
 <?php

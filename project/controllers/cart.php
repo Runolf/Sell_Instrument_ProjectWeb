@@ -19,7 +19,7 @@
     Cart::delete(REQ_TYPE_ID, $_SESSION["userId"]);
   }
   else {
-    $soldarticle = SellArticle::getOne();
+    $soldarticle = SellArticle::getOne(8);
     if ($soldarticle->active == 1) {
       $isValide = 1;
     }
