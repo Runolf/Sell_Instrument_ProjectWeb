@@ -83,16 +83,15 @@ class User{
    public static function getUserByHisArticle($_idUser){
      global $DB;
      try {
-       $response = $DB->query('
-       SELECT u.userId, u.email , u.pseudo, u.pswd ,u.city, u.street, u.number, u.rating, u.RoleId
-       FROM users AS u
-       JOIN sellarticles AS sa
-       ON u.userId = sa.userId
-       WHERE sa.userId =
-       '.$_idUser);
+       $response = $DB->query('SELECT u.userId, u.email , u.pseudo, u.pswd ,u.city, u.street, u.number, u.rating, u.RoleId
+                              FROM users AS u
+                              JOIN sellarticles AS sa
+                              ON u.userId = sa.userId
+                              WHERE sa.userId =
+                              '.$_idUser);
 
        $response->setFetchMode(PDO::FETCH_CLASS, 'User');
-       $data = $response->fetchAll();
+       $data = $response->fetch();
        $response->closeCursor();
        return $data;
 
