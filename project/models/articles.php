@@ -71,6 +71,7 @@ public static function getAll(){
       }
   }
 
+
   public static function getUser($_idUser){
     global $DB;
     try {

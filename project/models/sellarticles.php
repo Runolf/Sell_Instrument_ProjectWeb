@@ -20,7 +20,7 @@
    public static function getOne($_IdArticle){
      global $DB;
      try {
-       $response = $DB->query('SELECT * FROM sellarticles WHERE articleId = '. $_IdArticle);
+       $response = $DB->query('SELECT sellArticleId, articleId, userId, active FROM sellarticles WHERE articleId = '. $_IdArticle);
        $response->setFetchMode(PDO::FETCH_CLASS, 'SellArticle');
        $data = $response->fetch();
        $response->closeCursor();
