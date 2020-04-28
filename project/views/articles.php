@@ -12,13 +12,14 @@ ob_start();
     <div class="container_art">
 
     <?php foreach($articles as $article):?>
-      
+
         <div class="card text-center">
           <div class="card_title">
               <?=$article->name?>
           </div>
 
           <div class="card_body">
+              <img src="../img/<?= $article->picture; ?>" alt="an image" width="90px">
               <h5 class=""><?=$article->price?></h5>
               <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn_detail btn btn-primary">Voir le détail</a>
 

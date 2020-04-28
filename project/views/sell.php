@@ -5,7 +5,7 @@
 <form class="form-group jumbotron" method="post" action="<?=ROOT_PATH.'sell'?>" enctype="multipart/form-data">
 
   <input type="text" class="form-control" id="brand" name="brand" placeholder="enter the brand of your product"> <br/><br/>
-  <input type="text" class="form-control" id="name" name="name" placeholder="enter the name of your product"> <br/><br/>
+  <input type="text" class="form-control" id="name" name="name" placeholder="enter the model of your product"> <br/><br/>
 
   <input type="number" class="form-control" id="price" name="price" placeholder="enter the price of your product"> <br/><br/>
   <input type="text" class="form-control comment" id="comment" name="comment" placeholder="explain what your product is"> <br/><br/>

@@ -6,7 +6,6 @@ ob_start();
     <button type="submit" name="submit">Submit</button>
   </form>
 
-
 <?php
   $title = "testfile";
   $content = ob_get_clean();
