@@ -1,4 +1,4 @@
-<?php
+  <?php
     require_once 'models/articles.php';
     require_once 'models/users.php';
     require_once 'models/sellarticles.php';
