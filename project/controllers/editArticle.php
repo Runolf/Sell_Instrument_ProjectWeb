@@ -16,6 +16,8 @@
     $comment  = (empty($_POST['comment']))? $art->comment : $_POST['comment'];
 
     Article::modify($_POST['id'], $name, $brand, $picture, $price , $comment);
+    header("Location: ".ROOT_PATH."editArticle/".REQ_TYPE_ID);
+    exit();
   }
 
 
