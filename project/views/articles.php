@@ -19,10 +19,9 @@ ob_start();
           </div>
 
           <div class="card_body">
+            <h5 class=""><?=$article->price?> €</h5>
               <img src="../img/<?= $article->picture; ?>" alt="an image" width="90px">
-              <h5 class=""><?=$article->price?></h5>
               <a href="<?=ROOT_PATH.'article/'.$article->articleId?>" class="btn_detail btn btn-primary">Voir le détail</a>
-
           </div>
         </div>
 
