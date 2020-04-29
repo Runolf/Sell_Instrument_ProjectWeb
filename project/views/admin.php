@@ -17,7 +17,6 @@
     ]);
     var options = {
       title: 'Number of articles by client',
-      is3D: false
     };
     var chart = new google.visualization.PieChart(document.getElementById('div_charts'));
     chart.draw(data, options);
