@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.2 (64 bit)
-MySQL - 10.4.10-MariaDB : Database - instrumagasin
+MySQL - 10.4.11-MariaDB : Database - instrumagasin
 *********************************************************************
 */
 
@@ -33,10 +33,10 @@ CREATE TABLE `articles` (
 /*Data for the table `articles` */
 
 insert  into `articles`(`articleId`,`name`,`brand`,`picture`,`price`,`comment`) values 
-(8,'Zenox','Cort','fehu.png',360.00,'A marvelous guitar'),
-(9,'Test','Terre','deviantart_logo.png',45.00,'jijiji'),
-(10,'Carré','Noix','53049-Wall-Street--Lower-Manhattan.jpg',45.00,'trtr'),
-(11,'Park','Linkin','bibjesus.jpg',47.00,'best band in the world');
+(8,'Zenox','Cort','cort_zenox.jpg',360.00,'A marvelous guitar'),
+(9,'les paul','gibson','gibson_les_paul.png',999.99,'the best guitar in the world'),
+(10,'mpk mini mk2','akai','akai_mini.jpg',288.00,'good for production'),
+(11,'tim jr 5/6bk','stagg','stagg_tim_jr.jpg',125.00,'for kids');
 
 /*Table structure for table `carts` */
 

@@ -15,7 +15,7 @@ ob_start();
 
         <div class="card text-center">
           <div class="card_title">
-              <?=$article->name?>
+              <?=$article->brand." ".$article->name?>
           </div>
 
           <div class="card_body">
