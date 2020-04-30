@@ -18,7 +18,7 @@
        </div>
 
      </div>
-     <img class="myArt_img" src="../img/<?= $article->picture; ?>" alt="an image" width="90px">
+     <img class="myArt_img" src="../img/<?= $article->picture; ?>" alt="an image" width="170px">
    <?php endforeach?>
 
  <?php
