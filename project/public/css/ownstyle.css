@@ -107,7 +107,7 @@ width: 500px;
   float: left;
   position: relative;
   left: 20px;
-  top: 9px;
+  bottom: 170px;
 }
 
 .myArt_elem{
@@ -121,7 +121,6 @@ width: 500px;
   position: relative;
   left: 400px;
   top: 20px;
-  padding-right: 20px;
 }
 
 .myArt_edit:hover{
@@ -133,10 +132,9 @@ width: 500px;
   color: white;
 }
 .myArt_delete{
-  float: right;
-  padding-left: 55px;
-  margin-top: 15px;
-  margin-right: 10px;
+  position: relative;
+  left: 55%;
+  top: 20px;
   background-color: rgb(147, 74, 72);
   height: 30px;
   width: 170px;
@@ -144,20 +142,14 @@ width: 500px;
 }
 
 .myArt_delete:hover{
-  float: right;
-  padding-left: 55px;
-  margin-top: 15px;
-  margin-right: 10px;
   background-color: rgb(170, 30, 30);
-  height: 30px;
-  width: 170px;
-  border-radius: 50px;
 }
 
 .myArt_delete a {
+  position: relative;
+  bottom: 5px;
   text-decoration: none;
   color: white;
-
 }
 
 
