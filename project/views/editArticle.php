@@ -2,7 +2,7 @@
   ob_start();
 ?>
 
-<form class="form-group jumbotron" method="post" action="<?=ROOT_PATH.'editArticle/'.$art->articleId?>">
+<form class="form-group jumbotron" method="post" action="<?=ROOT_PATH.'editArticle/'.$art->articleId?>" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="brand">Brand</label>
@@ -27,6 +27,7 @@
   <div class="form-group">
     <label for="picture">Enter here the picture of your picture</label>
     <input type="file" class="form-control" id="picture" name="picture"> <br/>
+
   </div>
 
   <input type="hidden" id="id" name="id" value="<?= $art->articleId?>" >

@@ -8,7 +8,7 @@ ob_start();
 
   <input type="text" class="form-control" id="city" name="city" placeholder="enter your city"> <br/><br/>
   <input type="text" class="form-control" id="street" name="street" placeholder="enter your street"> <br/><br/>
-  <input type="text" class="form-control" id="nbr" name="nbr" placeholder="enter your number"> <br/><br/>
+  <input type="text" class="form-control" id="nbr" name="nbr" placeholder="enter your address number"> <br/><br/>
 
   <input type="password" class="form-control" id="pswd" name="pswd" placeholder="your password"> <br/>
   <input type="password" class="form-control" id="pswd" name="verify_pswd" placeholder="retype your password"> <br/>

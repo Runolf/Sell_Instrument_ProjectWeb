@@ -1,7 +1,6 @@
 <?php ob_start() ?>
 
 <br>
-  <?= $state->active  ?>
 <img class="img_detail" src="../img/<?= $article->picture; ?>" alt="an image">
 
 <dl class="row">

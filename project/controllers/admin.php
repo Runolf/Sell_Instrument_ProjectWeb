@@ -7,10 +7,10 @@
     }
 
     global $DB;
-    $sql = "SELECT COUNT(articleId) AS nbrArticles , userId AS dude FROM sellarticles GROUP BY userId";
+    $sql = "SELECT COUNT(sa.articleId) AS nbrArticles , u.pseudo AS dude FROM sellarticles AS sa JOIN `users` AS u ON sa.userId = u.userId GROUP BY dude;";
     $stmt = $DB->prepare($sql);
     $stmt->execute();
-    $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $arr = $stmt->fetchAll();
 
     /*
     echo '<pre>';

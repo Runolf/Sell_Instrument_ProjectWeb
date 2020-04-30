@@ -16,9 +16,14 @@
       <?php } ?>
     ]);
     var options = {
-      title: 'Number of articles by client',
+      title: 'Number of articles selled by client',
+      width: 990,
+      height: 350,
+      colors: ['rgb(200,120,25)'],
+      backgroundColor: '#d6d8db',
+
     };
-    var chart = new google.visualization.PieChart(document.getElementById('div_charts'));
+    var chart = new google.visualization.BarChart(document.getElementById('div_charts'));
     chart.draw(data, options);
   }
 </script>
