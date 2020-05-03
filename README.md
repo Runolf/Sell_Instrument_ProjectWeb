@@ -39,3 +39,8 @@ ServerName instru.test
 
 url home : http://instru.test
 
+Login et Mdp:  
+admin@hotmail.com : admin  
+alexandre@hotmail.com : alex  
+runolf@hotmail.com : runolf
+
