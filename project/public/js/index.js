@@ -21,6 +21,13 @@ function saveRating(e){
 
   removeEventListenerToAllStars();
   rating.innerText = e.target.dataset.star; // recupère la valeur de l'etoile. 1,2,3,4 ou 5. data-star = chiffre dans le html.
+
+  /*
+    appel ajax vers new controller avec donnée data-star et add data-idArticle
+
+    le controller doit récupérer les données en $_POST ou GET 
+
+  */
 }
 
 function addCss(e, css="star_checked"){
